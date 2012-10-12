@@ -1,0 +1,30 @@
+<h1>Listing product_details</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Market price</th>
+    <th>Coach price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_details.each do |product_detail| %>
+  <tr>
+    <td><%= product_detail.item %></td>
+    <td><%= product_detail.market_price %></td>
+    <td><%= product_detail.coach_price %></td>
+    <td><%= link_to 'Show', product_detail %></td>
+    <% if !current_member.blank?%>
+    <td><%= link_to 'Edit', edit_product_detail_path(product_detail) %></td>
+    <td><%= link_to 'Destroy', product_detail, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+ <% if !current_member.blank?%>
+<%= link_to 'New Product detail', new_product_detail_path %>
+<% end %>

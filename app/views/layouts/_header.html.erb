@@ -1,0 +1,28 @@
+<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to "COACH", '#', :id => "logo" %>
+			<nav>
+				<ul class="nav pull-right">
+					<li>
+						<%= link_to "Home",    root_path %>
+					</li>
+					<li>
+						<%= link_to "Products",   product_details_path %>
+					</li>
+					<li>
+						<%= link_to "Members", members_path %>
+					</li>
+					<li>
+						<%= link_to "Events", events_path %>
+					</li>
+					<% if !current_member.blank? %>
+					<li>
+						<%= link_to "Sign out", destroy_member_session_path,  :method => :delete %>
+					</li>
+					<% end %>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
